@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  webapp:
+    container_name: webapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE_PATH: ${JAR_FILE_PATH}
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    networks:
+      - my_network
+
+networks:
+    my_network:
