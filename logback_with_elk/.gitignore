@@ -38,3 +38,6 @@ out/
 
 .env
 !.env.template
+
+### ES Volume ###
+/elk/elasticsearch/data/

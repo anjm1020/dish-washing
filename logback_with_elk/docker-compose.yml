@@ -5,16 +5,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        JAR_FILE_PATH: ${JAR_FILE_PATH}
     restart: always
     env_file:
       - .env
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
     networks:
-      - my_network
+      - elk_network
 
 networks:
-    my_network:
-        driver: bridge
+  elk_network:
+    external: true
